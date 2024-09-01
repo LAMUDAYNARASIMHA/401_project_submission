@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-image: url('https://cdn.glitch.global/3f22dc83-403e-4ec4-b514-b8caf8cde83c/background-home.jpg?v=1722702597332');
+            background-image: url('animals.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -71,7 +71,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.7); /* Add background color with transparency */
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             margin: 20px;
@@ -96,6 +96,7 @@
             justify-content: center;
             gap: 20px;
             animation: fadeIn 3s ease-in;
+
         }
 
         .grid-item {
@@ -104,19 +105,19 @@
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s;
+            height: 100px;
         }
 
         .grid-item img {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
             margin-bottom: 10px;
         }
 
         .grid-item:hover {
             transform: scale(1.1);
         }
-
+       
         footer {
             width: 100%;
             text-align: center;
@@ -124,6 +125,103 @@
             padding: 10px 0;
             position: relative;
             bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer button {
+            background-color: #00A7E1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 0px 10px 0px rgba(0, 167, 225, 0.5);
+        }
+
+        footer button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 10px 20px 0px rgba(0, 167, 225, 0.5);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay-content {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            color: white;
+            width: 300px;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .overlay-content.show {
+            transform: scale(1);
+        }
+
+        .overlay-content h2 {
+            margin-top: 0;
+        }
+
+        .overlay-content label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .overlay-content input, .overlay-content textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: white;
+        }
+
+        .overlay-content button {
+            background-color: #00A7E1;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 0px 10px 0px rgba(0, 167, 225, 0.5);
+        }
+
+        .overlay-content button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 10px 20px 0px rgba(0, 167, 225, 0.5);
+        }
+
+        .overlay-content button.close-btn {
+            background-color: red;
+            margin-bottom: 10px;
         }
 
         @keyframes fadeIn {
@@ -150,22 +248,134 @@
             <p>Choose a category to learn more:</p>
             <div class="grid-container">
                 <a href="endangered.html" class="grid-item">
-                    <img src="endangered.jpg" alt="Endangered Species">
+                    <img src="https://th.bing.com/th/id/OIP.9dPJtl-cRYNUiHwpU_79PQHaFP?rs=1&pid=ImgDetMain" alt="Endangered Species">
                     <h3>Endangered</h3>
                 </a>
                 <a href="endemic.html" class="grid-item">
-                    <img src="endemic.jpg" alt="Endemic Species">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRu67knKD8knMKPBi_SRwrTBWp-4Iw-QYe0Q&s" alt="Endemic Species">
                     <h3>Endemic</h3>
                 </a>
                 <a href="extinct.html" class="grid-item">
-                    <img src="extinct.jpg" alt="Extinct Species">
+                    <img src="https://th.bing.com/th/id/OIP.Qeh8ztWQ2Q-PWd5JChmxUQHaFu?rs=1&pid=ImgDetMain" alt="Extinct Species">
                     <h3>Extinct</h3>
                 </a>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Endangered Echoes</p>
+        <center><p style="margin-left: 650px;">&copy; 2024 Endangered Echoes</p></center>
+        <button id="feedbackBtn">Give Feedback</button>
     </footer>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content" id="overlayContent">
+            <button class="close-btn" id="closeOverlayBtn">&times; Close</button>
+            <h2>Feedback</h2>
+            <form id="feedbackForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('feedbackBtn').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'flex';
+            document.getElementById('overlayContent').classList.add('show');
+        });
+
+        document.getElementById('closeOverlayBtn').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('overlayContent').classList.remove('show');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('overlay')) {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('overlayContent').classList.remove('show');
+            }
+        });
+    </script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAsFMCP0Hne62_fJ93xdbVdaiQ6-FJIM0U",
+          authDomain: "group-af66d.firebaseapp.com",
+          databaseURL: "https://group-af66d-default-rtdb.firebaseio.com",
+          projectId: "group-af66d",
+          storageBucket: "group-af66d.appspot.com",
+          messagingSenderId: "930954816439",
+          appId: "1:930954816439:web:472bc9d870ff0363295632",
+          measurementId: "G-DHSHPQCLMK"
+        };
+  
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Show feedback form
+            document.getElementById('feedbackBtn').addEventListener('click', function() {
+                document.getElementById('overlay').style.display = 'flex';
+                document.getElementById('overlayContent').classList.add('show');
+            });
+
+            // Close feedback form
+            document.getElementById('closeOverlayBtn').addEventListener('click', function() {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('overlayContent').classList.remove('show');
+            });
+
+            // Close feedback form if overlay is clicked
+            window.addEventListener('click', function(event) {
+                if (event.target === document.getElementById('overlay')) {
+                    document.getElementById('overlay').style.display = 'none';
+                    document.getElementById('overlayContent').classList.remove('show');
+                }
+            });
+
+            // Handle feedback form submission
+            document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                // Create a new feedback entry in the database
+                const feedbackRef = ref(database, 'feedbacks/' + new Date().getTime());
+                set(feedbackRef, {
+                    name: name,
+                    email: email,
+                    message: message
+                }).then(() => {
+                    // Clear the form and hide the overlay
+                    document.getElementById('feedbackForm').reset();
+                    document.getElementById('overlay').style.display = 'none';
+                    document.getElementById('overlayContent').classList.remove('show');
+                    alert('Thank you for your feedback!');
+                }).catch((error) => {
+                    console.error('Error writing to Firebase Database', error);
+                    alert('There was an error submitting your feedback. Please try again.');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
