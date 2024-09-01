@@ -1,0 +1,54 @@
+header{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdbxPp-__dRhUYbSyGPu4YGUw74T-Br8l_YBmQEI5njGkSK5c'),url('https://d1jyxxz9imt9yb.cloudfront.net/medialib/3628/image/s768x1300/Rhinocerous0002_reduced.jpg'), url('https://iucn.org/sites/default/files/content/images/2021/african_savanna_elephant_annabel_wynyard.jpeg');
+    background-position: left top, center top, right top;
+    background-size: 33.33%, 33.33%, 33.33%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#main-matter{
+    background-image:linear-gradient(wheat,white) ;
+    height: 500px;
+}
+.polarbear img{
+    border-radius: 500px;
+    border: 3px solid black;
+
+}
+.polarbear{
+    margin-left: 600px;
+    margin-top: -100px;
+}
+#head h1{
+    color: aliceblue;
+    margin-left: 40%;
+}
+ul{
+    list-style-type: none;
+    margin-top: 200px;
+}
+ul li a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-left: 310px;
+    font-weight: bold;
+    color: aliceblue;
+
+}
+.list ul li{
+    display: inline;
+}
+.matter{
+    padding: 20px;
+    background-color: wheat;
+    border-radius: 30px;
+    font-weight: lighter;
+    
+
+
+}
+.head{
+    
+    font-style: italic;
+    font-size: 30px;
+
+}
